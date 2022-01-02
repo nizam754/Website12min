@@ -1,3 +1,4 @@
+from PIL import Image
 import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
@@ -13,6 +14,8 @@ def load_lottieurl(url):
 
 # ---- LOAD ASSETS ----
 lottie_coding = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_fcfjwiyb.json")
+img_contact_form = Image.open("images/yt_contact_form.png")
+img_lottie_animation = Image.open("images/yt_lottie_animation.png")
 
 #------Header Section------------
 with st.container():
@@ -41,3 +44,35 @@ with st.container():
         st.write("[youTube Channel >](https://www.youtube.com)")
     with right_column:
         st_lottie(lottie_coding, height=300, key="coding")
+
+#----Projects----
+with st.container():
+    st.write("---")
+    st.header("My Projects")
+    st.write("##")
+    image_column, text_column = st.columns((1, 2))
+    with image_column:
+        st.image(img_lottie_animation)
+    with text_column:
+        st.subheader("Integrate Lottie Animations Inside Your Streamlit App")
+        st.write(
+            """
+            Learn how to use Lottie Files in Streamlit!
+            Animations make our web app more engaging and fun, and Lottie Files are the easiest way to do it!
+            In this tutorial, I'll show you exactly how to do it
+            """
+        )
+        st.markdown("[Watch Video...](https://youtu.be/TXSOitGoINE)")
+    with st.container():
+        image_column, text_column = st.columns((1, 2))
+        with image_column:
+            st.image(img_contact_form)
+        with text_column:
+            st.subheader("How To Add A Contact Form To Your Streamlit App")
+            st.write(
+                """
+                Want to add a contact form to your Streamlit website?
+                In this video, I'm going to show you how to implement a contact form in your Streamlit app using the free service ‘Form Submit’.
+                """
+            )
+            st.markdown("[Watch Video...](https://youtu.be/FOULV9Xij_8)")
